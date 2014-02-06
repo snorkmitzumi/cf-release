@@ -387,3 +387,6 @@ properties:
   dea_next.staging_memory_limit_mb:
     description: "Memory limit in mb for staging tasks"
     default: 1024
+
+  uaa.clients.cc_service_broker_client.secret:
+    description: "Used for generating SSO clients for service brokers."
