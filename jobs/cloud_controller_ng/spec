@@ -80,6 +80,10 @@ properties:
     description: "Pipefs directory for NFS idmapd"
     default: "/var/lib/nfs/rpc_pipefs"
 
+  ccng.port:
+    description: "External Cloud Controller port"
+    default: 9022
+
   ccng.jobs.global.timeout_in_seconds:
     description: "The longest any job can take before it is cancelled unless overriden per job"
     default: 14400 # 4 hours
@@ -141,10 +145,6 @@ properties:
   ccng.bulk_api_password:
     description: "Password used to access the bulk_api, health_manager uses it to connect to the cc, announced over NATS"
 
-  ccng.use_nginx:
-    default: true
-    description: "Use nginx in front of the CC"
-
   ccng.uaa_resource_id:
     default: "cloud_controller"
     description: "Name of service to register to UAA"
@@ -191,7 +191,7 @@ properties:
     default: "Local"
   ccng.default_fog_connection.local_root:
     description: "Local root when fog provider is not overridden (should be an NFS mount if using more than one cloud controller)"
-    default: "/var/vcap/nfs/store"
+    default: "/var/vcap/nfs/shared"
 
   ccng.resource_pool.minimum_size:
     description: "Minimum size of a resource to add to the pool"
@@ -327,6 +327,9 @@ properties:
   ccng.default_app_memory:
     default: 1024
     description: "How much memory given to an app if not specified"
+  ccng.maximum_app_disk_in_mb:
+    default: 2048
+    description: "The maximum amount of disk a user can request"
   ccng.hm9000_noop:
     default: true
     description: "Disable processing HM9000 messages"
@@ -374,3 +377,13 @@ properties:
   ccng.process_group:
     default: cloud_controller
     description: "Determines what processes to run for the job"
+  ccng.jobs.local.number_of_workers:
+    default: 2
+    description: "Number of local cloud_controller_jobs workers"
+  ccng.jobs.generic.number_of_workers:
+    default: 1
+    description: "Number of generic cloud_controller_jobs workers"
+
+  dea_next.staging_memory_limit_mb:
+    description: "Memory limit in mb for staging tasks"
+    default: 1024

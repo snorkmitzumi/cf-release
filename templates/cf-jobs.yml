@@ -110,7 +110,7 @@ jobs:
     release: (( meta.release.name ))
     template: postgres
     instances: 0
-    resource_pool: large_z1
+    resource_pool: medium_z1
     persistent_disk: 4096
     networks:
     - name: cf1
@@ -122,7 +122,7 @@ jobs:
     release: (( meta.release.name ))
     template: uaa
     instances: 1
-    resource_pool: large_z1
+    resource_pool: medium_z1
     networks:
       - name: cf1
     properties:
@@ -132,7 +132,7 @@ jobs:
     release: (( meta.release.name ))
     template: uaa
     instances: 1
-    resource_pool: large_z2
+    resource_pool: medium_z2
     networks:
       - name: cf2
     properties:
@@ -180,7 +180,7 @@ jobs:
     release: (( meta.release.name ))
     template: cloud_controller_ng
     instances: 1
-    resource_pool: large_z1
+    resource_pool: medium_z1
     persistent_disk: 0
     networks:
       - name: cf1
@@ -327,7 +327,7 @@ jobs:
     release: (( meta.release.name ))
     template: loggregator
     instances: 2
-    resource_pool: large_z1
+    resource_pool: medium_z1
     networks:
       - name: cf1
         static_ips: (( merge ))
@@ -338,7 +338,7 @@ jobs:
     release: (( meta.release.name ))
     template: loggregator
     instances: 2
-    resource_pool: large_z2
+    resource_pool: medium_z2
     networks:
       - name: cf2
         static_ips: (( merge ))
@@ -420,6 +420,8 @@ properties:
     memory_overcommit_factor: 3
     disk_mb: (( merge ))
     disk_overcommit_factor: 2
+    staging_disk_inode_limit: 200000
+    instance_disk_inode_limit: 200000
     deny_networks: (( merge || [] ))
     allow_networks: (( merge || [] ))
     kernel_network_tuning_enabled: true
