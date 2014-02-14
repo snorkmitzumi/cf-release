@@ -246,7 +246,7 @@ packages:
 - name: nginx
   version: 10
   sha1: !binary |-
-    YTVkMmJhNDFjZDBhMmM0NGExNTExOGJiZjZmYWYzNzM2MGRjODVlMw==
+    N2E0NDM4MjY2Y2EyOTYyM2QxYzAzZDc0YTcyYmMwMWFkMTA2ZDgwOA==
   fingerprint: !binary |-
     ZmZiOGFhZWNhNDE2MmQ5ZmYyMGY5MDc5OGRlZGI4MGQyM2IyYzJjMA==
   dependencies: []
